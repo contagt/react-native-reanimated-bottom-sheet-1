@@ -1,6 +1,6 @@
 {
-  "name": "@skyraptor/reanimated-bottom-sheet",
-  "version": "1.0.0-alpha.25",
+  "name": "@contagt/reanimated-bottom-sheet",
+  "version": "1.0.0-alpha.26",
   "description": "Bottom sheet component",
   "main": "lib/commonjs/index.js",
   "module": "lib/module/index.js",
@@ -29,7 +29,7 @@
   "author": "Michał Osadnik",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/osdnk/reanimated-bottom-sheet.git"
+    "url": "git+git@github.com:contagt/react-native-reanimated-bottom-sheet-1.git"
   },
   "license": "MIT",
   "peerDependencies": {

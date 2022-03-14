@@ -1,11 +1,7 @@
 import * as React from 'react'
-import { Dimensions, Platform, View, LayoutChangeEvent } from 'react-native'
+import { Dimensions, LayoutChangeEvent, Platform, View } from 'react-native'
+import { State as GestureState, PanGestureHandler, TapGestureHandler } from 'react-native-gesture-handler'
 import Animated from 'react-native-reanimated'
-import {
-  PanGestureHandler,
-  TapGestureHandler,
-  State as GestureState,
-} from 'react-native-gesture-handler'
 
 type Props = {
   /**
@@ -804,7 +800,7 @@ export default class BottomSheetBehavior extends React.Component<Props, State> {
           style={{
             height: '100%',
             width: 0,
-            position: 'absolute',
+            position: 'absolute'
           }}
           onLayout={this.handleFullHeader}
         />
@@ -824,6 +820,11 @@ export default class BottomSheetBehavior extends React.Component<Props, State> {
             ],
           }}
         >
+          {this.props.renderBackground && (
+            <View style={{position: 'absolute', flex: 1, top: 0, left: 0, right:0, bottom: 0, zIndex: -1, borderRadius: this.props.borderRadius}}>
+              {this.props.renderBackground()}
+            </View>
+          )}
           <PanGestureHandler
             enabled={
               this.props.enabledGestureInteraction &&
@@ -854,11 +855,6 @@ export default class BottomSheetBehavior extends React.Component<Props, State> {
               }
             }
           >
-            {this.props.renderBackground && (
-              <View style={{position: 'absolute', flex: 1, top: 0, zIndex: -1}}>
-                {this.props.renderBackground()}
-              </View>
-            )}
             <PanGestureHandler
               enabled={
                 this.props.enabledGestureInteraction &&
